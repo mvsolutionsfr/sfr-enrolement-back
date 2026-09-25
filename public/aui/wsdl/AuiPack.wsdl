@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:bindns="http://webservices/ANNU_INTERNE/AuiSvc/1-0/bind" xmlns:defns="http://webservices/ANNU_INTERNE/AuiSvc/1-0/definition" xmlns:impl="http://webservices/ANNU_INTERNE/AuiSvc/1-0" xmlns:schema="http://webservices/ANNU_INTERNE/AuiSvc/1-0/schema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WSAUI" targetNamespace="http://webservices/ANNU_INTERNE/AuiSvc/1-0">
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://webservices/ANNU_INTERNE/AuiSvc/1-0/schema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+			<!-- Service messages datatypes section -->
+			<xsd:element name="AuthenticatePersonRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1" minOccurs="1" name="applicationLogin" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="applicationPassword" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="login" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="userPassword" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="0" name="intranetScope" type="xsd:boolean"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="AuthenticatePersonResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="perid" type="xsd:string"/>
+						<xsd:element name="warning" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="AuthenticateAcdRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1" minOccurs="1" name="applicationLogin" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="applicationPassword" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="login" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="userPassword" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="0" name="intranetScope" type="xsd:boolean"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="AuthenticateAcdResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="perid" type="xsd:string"/>
+						<xsd:element name="warning" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="AuthenticateApplicationRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1" minOccurs="1" name="applicationLogin" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="applicationPassword" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="AuthenticateApplicationResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1" minOccurs="1" name="applicationName" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="IdentifyRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1" minOccurs="1" name="applicationLogin" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="applicationPassword" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="login" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="IdentifyResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="perid" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="GetAppCodeRoleRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1" minOccurs="1" name="applicationLogin" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="applicationPassword" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="perid" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="GetAppCodeRoleResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="appCodeRole" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="GetUserDataRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1" minOccurs="1" name="applicationLogin" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="applicationPassword" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="perid" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="attributeName" type="schema:ArrayOfString"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="GetUserDataResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="userData" type="schema:ArrayOfLdapAttribute"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="GetUserInformationRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1" minOccurs="1" name="applicationLogin" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="applicationPassword" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="perid" nillable="true" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="userLogin" nillable="true" type="xsd:string"/>
+						<xsd:element maxOccurs="1" minOccurs="1" name="attributeName" type="schema:ArrayOfString"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="GetUserInformationResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="userInformation" type="schema:ArrayOfLdapStructAttribute"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- Composite datatypes section -->
+			<xsd:complexType name="ArrayOfString">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="elt" nillable="true" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="ArrayOfString" nillable="true" type="schema:ArrayOfString"/>
+
+			<xsd:complexType name="LdapAttribute">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="name" type="xsd:string"/>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="value" nillable="true" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="LdapAttribute" nillable="true" type="schema:LdapAttribute"/>
+
+			<xsd:complexType name="ArrayOfLdapAttribute">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="elt" nillable="true" type="schema:LdapAttribute"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="ArrayOfLdapAttribute" nillable="true" type="schema:ArrayOfLdapAttribute"/>
+
+			<xsd:complexType name="LdapStructAttribute">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="name" nillable="false" type="xsd:string"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="isStruct" nillable="false" type="xsd:boolean"/>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="value" nillable="true" type="xsd:string"/>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="struct" nillable="true" type="schema:LdapAttribute"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="LdapStructAttribute" nillable="true" type="schema:LdapStructAttribute"/>
+
+			<xsd:complexType name="ArrayOfLdapStructAttribute">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="elt" nillable="true" type="schema:LdapStructAttribute"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="ArrayOfLdapStructAttribute" nillable="true" type="schema:ArrayOfLdapStructAttribute"/>
+
+			<!-- Exception section -->
+			<xsd:complexType name="AuthenticatePersonException">
+				<xsd:sequence>
+					<xsd:element name="message" nillable="true" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="AuthenticatePersonException" nillable="true" type="schema:AuthenticatePersonException"/>
+
+			<xsd:complexType name="AuthenticateAcdException">
+				<xsd:sequence>
+					<xsd:element name="message" nillable="true" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="AuthenticateAcdException" nillable="true" type="schema:AuthenticateAcdException"/>
+
+			<xsd:complexType name="AuthenticateApplicationException">
+				<xsd:sequence>
+					<xsd:element name="message" nillable="true" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="AuthenticateApplicationException" nillable="true" type="schema:AuthenticateApplicationException"/>
+
+			<xsd:complexType name="IdentifyException">
+				<xsd:sequence>
+					<xsd:element name="message" nillable="true" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="IdentifyException" nillable="true" type="schema:IdentifyException"/>
+
+			<xsd:complexType name="GetAppCodeRoleException">
+				<xsd:sequence>
+					<xsd:element name="message" nillable="true" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="GetAppCodeRoleException" nillable="true" type="schema:GetAppCodeRoleException"/>
+
+			<xsd:complexType name="GetUserDataException">
+				<xsd:sequence>
+					<xsd:element name="message" nillable="true" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="GetUserDataException" nillable="true" type="schema:GetUserDataException"/>
+
+			<xsd:complexType name="GetUserInformationException">
+				<xsd:sequence>
+					<xsd:element name="message" nillable="true" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="GetUserInformationException" nillable="true" type="schema:GetUserInformationException"/>
+
+		</xsd:schema>
+
+	</wsdl:types>
+
+
+	<wsdl:message name="authenticatePersonRequest">
+		<wsdl:part element="schema:AuthenticatePersonRequest" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:message name="authenticatePersonResponse">
+		<wsdl:part element="schema:AuthenticatePersonResponse" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:message name="authenticateAcdRequest">
+		<wsdl:part element="schema:AuthenticateAcdRequest" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:message name="authenticateAcdResponse">
+		<wsdl:part element="schema:AuthenticateAcdResponse" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:message name="authenticateApplicationRequest">
+		<wsdl:part element="schema:AuthenticateApplicationRequest" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:message name="authenticateApplicationResponse">
+		<wsdl:part element="schema:AuthenticateApplicationResponse" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:message name="identifyRequest">
+		<wsdl:part element="schema:IdentifyRequest" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:message name="identifyResponse">
+		<wsdl:part element="schema:IdentifyResponse" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:message name="getAppCodeRoleRequest">
+		<wsdl:part element="schema:GetAppCodeRoleRequest" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:message name="getAppCodeRoleResponse">
+		<wsdl:part element="schema:GetAppCodeRoleResponse" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:message name="getUserDataRequest">
+		<wsdl:part element="schema:GetUserDataRequest" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:message name="getUserDataResponse">
+		<wsdl:part element="schema:GetUserDataResponse" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:message name="getUserInformationRequest">
+		<wsdl:part element="schema:GetUserInformationRequest" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:message name="getUserInformationResponse">
+		<wsdl:part element="schema:GetUserInformationResponse" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:message name="authenticatePersonException">
+		<wsdl:part element="schema:AuthenticatePersonException" name="fault"/>
+	</wsdl:message>
+
+	<wsdl:message name="authenticateAcdException">
+		<wsdl:part element="schema:AuthenticateAcdException" name="fault"/>
+	</wsdl:message>
+
+	<wsdl:message name="authenticateApplicationException">
+		<wsdl:part element="schema:AuthenticateApplicationException" name="fault"/>
+	</wsdl:message>
+
+	<wsdl:message name="identifyException">
+		<wsdl:part element="schema:IdentifyException" name="fault"/>
+	</wsdl:message>
+
+	<wsdl:message name="getAppCodeRoleException">
+		<wsdl:part element="schema:GetAppCodeRoleException" name="fault"/>
+	</wsdl:message>
+
+	<wsdl:message name="getUserDataException">
+		<wsdl:part element="schema:GetUserDataException" name="fault"/>
+	</wsdl:message>
+
+	<wsdl:message name="getUserInformationException">
+		<wsdl:part element="schema:GetUserInformationException" name="fault"/>
+	</wsdl:message>
+
+	<wsdl:portType name="AuiSvcPortType">
+
+		<wsdl:operation name="authenticatePerson">
+			<wsdl:input message="impl:authenticatePersonRequest" name="authenticatePersonRequest"/>
+			<wsdl:output message="impl:authenticatePersonResponse" name="authenticatePersonResponse"/>
+			<wsdl:fault message="impl:authenticatePersonException" name="authenticatePersonException"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="authenticateAcd">
+			<wsdl:input message="impl:authenticateAcdRequest" name="authenticateAcdRequest"/>
+			<wsdl:output message="impl:authenticateAcdResponse" name="authenticateAcdResponse"/>
+			<wsdl:fault message="impl:authenticateAcdException" name="authenticateAcdException"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="authenticateApplication">
+			<wsdl:input message="impl:authenticateApplicationRequest" name="authenticateApplicationRequest"/>
+			<wsdl:output message="impl:authenticateApplicationResponse" name="authenticateApplicationResponse"/>
+			<wsdl:fault message="impl:authenticateApplicationException" name="authenticateApplicationException"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="identify">
+			<wsdl:input message="impl:identifyRequest" name="identifyRequest"/>
+			<wsdl:output message="impl:identifyResponse" name="identifyResponse"/>
+			<wsdl:fault message="impl:identifyException" name="identifyException"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="getAppCodeRole">
+			<wsdl:input message="impl:getAppCodeRoleRequest" name="getAppCodeRoleRequest"/>
+			<wsdl:output message="impl:getAppCodeRoleResponse" name="getAppCodeRoleResponse"/>
+			<wsdl:fault message="impl:getAppCodeRoleException" name="getAppCodeRoleException"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="getUserData">
+			<wsdl:input message="impl:getUserDataRequest" name="getUserDataRequest"/>
+			<wsdl:output message="impl:getUserDataResponse" name="getUserDataResponse"/>
+			<wsdl:fault message="impl:getUserDataException" name="getUserDataException"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="getUserInformation">
+			<wsdl:input message="impl:getUserInformationRequest" name="getUserInformationRequest"/>
+			<wsdl:output message="impl:getUserInformationResponse" name="getUserInformationResponse"/>
+			<wsdl:fault message="impl:getUserInformationException" name="getUserInformationException"/>
+		</wsdl:operation>
+
+	</wsdl:portType>
+
+
+	<wsdl:binding name="AuiSvcBind" type="impl:AuiSvcPortType">
+
+
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+		<wsdl:operation name="authenticatePerson">
+			<soap:operation soapAction="http://webservices/ANNU_INTERNE/AuiSvc/1-0/authenticatePerson"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="authenticatePersonException">
+				<soap:fault name="authenticatePersonException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="authenticateAcd">
+			<soap:operation soapAction="http://webservices/ANNU_INTERNE/AuiSvc/1-0/authenticateAcd"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="authenticateAcdException">
+				<soap:fault name="authenticateAcdException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="authenticateApplication">
+			<soap:operation soapAction="http://webservices/ANNU_INTERNE/AuiSvc/1-0/authenticateApplication"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="authenticateApplicationException">
+				<soap:fault name="authenticateApplicationException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="identify">
+			<soap:operation soapAction="http://webservices/ANNU_INTERNE/AuiSvc/1-0/identify"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="identifyException">
+				<soap:fault name="identifyException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="getAppCodeRole">
+			<soap:operation soapAction="http://webservices/ANNU_INTERNE/AuiSvc/1-0/getAppCodeRole"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="getAppCodeRoleException">
+				<soap:fault name="getAppCodeRoleException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="getUserData">
+			<soap:operation soapAction="http://webservices/ANNU_INTERNE/AuiSvc/1-0/getUserData"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="getUserDataException">
+				<soap:fault name="getUserDataException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="getUserInformation">
+			<soap:operation soapAction="http://webservices/ANNU_INTERNE/AuiSvc/1-0/getUserInformation"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="getUserInformationException">
+				<soap:fault name="getUserInformationException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+	</wsdl:binding>
+
+	<wsdl:service name="AuiSvc">
+		<wsdl:port binding="impl:AuiSvcBind" name="AuiSvcPort">
+			<soap:address location="http://localhost:9082/WsAuiExt/services/AuiSvcPort"/>
+		</wsdl:port>
+	</wsdl:service>
+
+
+</wsdl:definitions>

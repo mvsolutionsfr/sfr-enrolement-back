@@ -1,0 +1,135 @@
+{
+    "[ErrCode 0]": [{
+        "public": "[ErrCode 0] - Le compte AUI renseigné est introuvable.",
+        "private": "[ErrCode 0] - Cannot find account"
+    }],
+    "[ErrCode 1]": [{
+        "public": "[ErrCode 1] - Le compte AUI renseigné est verrouillé.",
+        "private": "[ErrCode 1] - Authentication failed: account is locked"
+    }],
+    "[ErrCode 4]": [{
+        "public": "[ErrCode 4] - Le compte AUI renseigné n'a pas de profil, pensez à faire votre demande de compte sur MyPC.",
+        "private": "[ErrCode 4] - Cannot find any role for user"
+    }],
+    "[ErrCode 5]": [{
+        "public": "[ErrCode 5] - Le compte AUI renseigné posséde plusieurs roles.",
+        "private": "[ErrCode 5] - Multiple roles for user"
+    }],
+    "[ErrCode 6]": [{
+        "public": "[ErrCode 6] - Une erreur interne est survenue, merci de réessayer.",
+        "private": "[ErrCode 6] - Application DN wrongly formatted"
+    }],
+    "[ErrCode 7]": [{
+        "public": "[ErrCode 7] - Une erreur interne est survenue, merci de réessayer.",
+        "private": "[ErrCode 7] - Cryptographic algorithm not available in this environment"
+    }],
+    "[ErrCode 8]": [{
+        "public": "[ErrCode 8] - Une erreur interne est survenue, merci de réessayer.",
+        "private": "[ErrCode 8] - Problem while decoding Base64-encoded data"
+    }],
+    "[ErrCode 9]": [{
+        "public": "[ErrCode 9] - Une erreur interne est survenue, merci de réessayer.",
+        "private": "[ErrCode 9] - Time-out occured while performing LDAP search"
+    }],
+    "[ErrCode 10]": [{
+        "public": "[ErrCode 10] - Une erreur interne est survenue, merci de réessayer.",
+        "private": "[ErrCode 10] - Application not found"
+    }],
+    "[ErrCode 11]": [{
+        "public": "[ErrCode 11] - Le compte AUI est introuvable dans la base SFR.",
+        "private": "[ErrCode 11] - Cannot find account for person "
+    }],
+    "[ErrCode 12]": [{
+        "public": "[ErrCode 12] - Une erreur interne est survenue, merci de réessayer.",
+        "private": "[ErrCode 12] - Cannot find account for application "
+    }],
+    "[ErrCode 13]": [{
+        "public": "[ErrCode 13] - Le login ou le mot de passe saisi est incorrect, merci de réessayer.",
+        "private": "[ErrCode 13] - Authentication failed. Invalid password provided for user"
+    }],
+    "[ErrCode 14]": [{
+        "public": "[ErrCode 14] - Une erreur interne est survenue, merci de réessayer.",
+        "private": "[ErrCode 14] - Authentication failed. Invalid password provided for application "
+    }],
+    "[ErrCode 15]": [{
+        "public": "[ErrCode 15] - Une erreur interne est survenue, merci de réessayer.",
+        "private": "[ErrCode 15] - Intranet access denied for user"
+    }],
+    "[ErrCode 20]": [{
+        "public": "[ErrCode 20] - Une erreur interne est survenue, merci de réessayer.",
+        "private": "[ErrCode 20] - Failure while setting attribute"
+    }],
+    "[ErrCode 21]": [{
+        "public": "[ErrCode 21] - Le compte AUI est introuvable dans la base SFR.",
+        "private": "[ErrCode 21] - Failure while getting attribute"
+    }],
+    "[ErrCode 22]": [{
+        "public": "[ErrCode 22] - Une erreur interne est survenue, merci de réessayer.",
+        "private": "[ErrCode 22] - Failure while getting perid for user"
+    }],
+    "[ErrCode 23]": [{
+        "public": "[ErrCode 23] - Veuillez renseigner votre login.",
+        "private": "[ErrCode 23] - Failure while getting perid for user - 'Perid' attribute cannot be null"
+    }],
+    "[ErrCode 24]": [{
+        "public": "ErrCode 24] - Une erreur interne est survenue, merci de réessayer.",
+        "private": "ErrCode 24] - Missing attribute in LDAP branch"
+    }],
+    "[ErrCode 30]": [{
+        "public": "[ErrCode 30] - Le compte renseigné est introuvable dans la base SFR.",
+        "private": "[ErrCode 30] - Account does not exist"
+    }],
+    "[ErrCode 31]": [{
+        "public": "[ErrCode 31] - Le login ou le mot de passe saisi est incorrect, merci de réessayer",
+        "private": "[ErrCode 31] - The password provided for account is incorrect"
+    }],
+    "[ErrCode 40]": [{
+        "public": "[ErrCode 40] - Une erreur interne est survenue, merci de réessayer.",
+        "private": "[ErrCode 40] - Account status: PRE-REGISTERED - [cgtlActived=2]"
+    }],
+    "[ErrCode 41]": [{
+        "public": "[ErrCode 41] - Le compte renseigné est inactif.",
+        "private": "[ErrCode 41] - Account[<login>] status: INACTIVE - [cgtlActived=0]"
+    }],
+    "[ErrCode 42]": [{
+        "public": "[ErrCode 42] - Le compte renseigné est suspendu.",
+        "private": "[ErrCode 42] - Account status: SUSPENDED - [cgtlActived=3]"
+    }],
+    "[ErrCode 43]": [{
+        "public": "[ErrCode 43] - Le compte renseigné est verrouillé.",
+        "private": "[ErrCode 43] - Account status: LOCKED - [cgtlActived=4]"
+    }],
+    "[ErrCode 44]": [{
+        "public": "[ErrCode 44] - Le mot de passe du compte renseigné est expiré.",
+        "private": "[ErrCode 44] - Account status: PASSWORD EXPIRED - [cgtlActived=5]"
+    }],
+    "[ErrCode 45]": [{
+        "public": "[ErrCode 45] - Une erreur interne est survenue, merci de réessayer. ",
+        "private": "[ErrCode 45] - Account status: PRE-REGISTERED CANCELLATION - [cgtlActived=6]"
+    }],
+    "[ErrCode 46]": [{
+        "public": "[ErrCode 46] - Une erreur interne est survenue, merci de réessayer.",
+        "private": "[ErrCode 46] - Account - Invalid value for attribute [cgtlActived=<cgtlActived>]"
+    }],
+    "[ErrCode 50]": [{
+        "public": "[ErrCode 50] - Une erreur interne est survenue, merci de réessayer.",
+        "private": "[ErrCode 50] - Unexpected error"
+    }],
+    "[ErrCode 51]": [{
+        "public": "[ErrCode 51] - Une erreur interne est survenue, merci de réessayer.",
+        "private": "[ErrCode 51] - Unexpected error"
+    }],
+    "[ErrCode 52]": [{
+        "public": "[ErrCode 52] - Une erreur interne est survenue, merci de réessayer.",
+        "private": "[ErrCode 52] - Unexpected error"
+    }],
+    "[ErrCode 60]": [{
+        "public": "[ErrCode 60] - Une erreur interne est survenue, merci de réessayer.",
+        "private": "[ErrCode 60] - Invalid port number for LDAP server! Check your properties file"
+    }],
+    "[ErrCode 61]": [{
+        "public": "[ErrCode 61] - Une erreur interne est survenue, merci de réessayer. ",
+        "private": "[ErrCode 61] - Unknown host for LDAP server! Check your properties file"
+    }]
+
+}

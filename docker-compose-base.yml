@@ -1,0 +1,7 @@
+services:
+  image_php:
+    build:
+      context: .
+      dockerfile: ./Dockerfile-alpine-php85
+    image: enrolement-php85-symfony8:latest
+

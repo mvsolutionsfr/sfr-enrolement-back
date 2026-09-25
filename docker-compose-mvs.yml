@@ -1,0 +1,17 @@
+services:
+  www:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile-mvs
+    image: enrolement-back:latest
+    container_name: enrolement-back-php8.5
+    restart: always
+    ports:
+      - '8000:80'
+    dns:
+      - 8.8.8.8
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  db-data:

@@ -1,0 +1,5 @@
+#!/bin/sh
+if [ -d "/app/conf" ]; then
+  ln -s /app/conf/.env /var/www/.env.local
+fi
+

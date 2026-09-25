@@ -1,0 +1,52 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+     nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  name: enrolement-ingress-integ
+spec:
+  rules:
+  - host: enrolement.pfv.private.sfr.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: enrolement-front
+            port:
+              number: 80
+      - path: /back
+        pathType: Prefix
+        backend:
+          service:
+            name: enrolement-back
+            port:
+              number: 80
+  - host: enrolement.pfv.sfrbusinessteam.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: enrolement-front
+            port:
+              number: 80
+      - path: /back
+        pathType: Prefix
+        backend:
+          service:
+            name: enrolement-back
+            port:
+              number: 80
+  - host: enrolementback.pfv.private.sfr.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: enrolement-back
+            port:
+              number: 80

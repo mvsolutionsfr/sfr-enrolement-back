@@ -1,0 +1,2 @@
+Acquire::http::Proxy "http://u163116:!RemiRave99!@internetng.encara.local.ads:8080";
+Acquire::https::Proxy "http://u163116:!RemiRave99!@internetng.encara.local.ads:8080";    

@@ -1,0 +1,17 @@
+# Un Dockerfile valide doit commencer par un FROM
+# Le FROM définit l'image qui servira de base pour la suite de la construction
+#FROM hub.valentine.sfr.com/dockerhub/library/php:8.5-apache
+FROM php:8.5-apache
+
+COPY ./vendor /var/www/vendor
+#COPY config/02proxy /etc/apt/apt.conf.d/
+#COPY config/resolv.conf /etc/
+
+# On installe les outils et librairies nécessaires (wget et git notamment)
+RUN apt-get update
+#RUN apt-get install -y wget git --no-install-recommends
+RUN apt-get install -y libxml2-dev
+RUN apt-get install -y libpq-dev
+RUN docker-php-ext-install pdo pdo_pgsql
+RUN docker-php-ext-install soap
+RUN apt-get install -y git nano wget --no-install-recommends

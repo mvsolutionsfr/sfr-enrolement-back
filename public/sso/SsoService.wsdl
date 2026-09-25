@@ -1,0 +1,401 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.sfr.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.sfr.com" targetNamespace="http://www.sfr.com">
+<wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.sfr.com">
+<!--   DEBUT Element pour le WS GetToken	  -->
+<xsd:element name="GetTokenRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="appId" nillable="false" type="xsd:string"/>
+<xsd:element name="ip" nillable="false" type="xsd:string"/>
+<xsd:element name="login" nillable="false" type="xsd:string"/>
+<xsd:element name="clientId" type="xsd:string"/>
+<xsd:element name="accountType" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetTokenResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="tokenId" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<!--   FIN Element pour le WS GetToken	  -->
+<!--   DEBUT Element pour le WS validateToken	  -->
+<xsd:element name="ValidateTokenRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="tokenId" nillable="false" type="xsd:string"/>
+<xsd:element name="appId" nillable="false" type="xsd:string"/>
+<xsd:element name="ip" nillable="false" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ValidateTokenResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="tokenId" nillable="false" type="xsd:string"/>
+<xsd:element name="appId" nillable="false" type="xsd:string"/>
+<xsd:element name="ip" nillable="false" type="xsd:string"/>
+<xsd:element name="login" nillable="false" type="xsd:string"/>
+<xsd:element name="clientId" nillable="false" type="xsd:string"/>
+<xsd:element name="accountType" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<!--   FIN Element pour le WS validateToken	  -->
+<!--   DEBUT Element pour le WS GetPolToken	  -->
+<xsd:element name="GetPolTokenRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="appId" nillable="false" type="xsd:string"/>
+<xsd:element name="ip" nillable="false" type="xsd:string"/>
+<xsd:element name="login" nillable="false" type="xsd:string"/>
+<xsd:element name="clientId" type="xsd:string"/>
+<xsd:element name="accountType" type="xsd:string"/>
+<!--  	champ specifique au jeton pol	  -->
+<xsd:element name="codeScs" type="xsd:string"/>
+<xsd:element name="codeTitulaire" type="xsd:string"/>
+<xsd:element name="nomTitulaire" type="xsd:string"/>
+<xsd:element name="holding" type="xsd:boolean"/>
+<xsd:element name="typeUtilisateur" type="xsd:integer"/>
+<xsd:element name="civilite" type="xsd:string"/>
+<xsd:element name="nom" type="xsd:string"/>
+<xsd:element name="prenom" type="xsd:string"/>
+<xsd:element name="email" type="xsd:string"/>
+<xsd:element name="email2" type="xsd:string"/>
+<xsd:element name="telFix" type="xsd:string"/>
+<xsd:element name="telMobile" type="xsd:string"/>
+<xsd:element name="fax" type="xsd:string"/>
+<xsd:element name="visibilite" type="xsd:string"/>
+<xsd:element name="visibiliteFlag" type="xsd:boolean"/>
+<xsd:element name="nivHabAcheter" type="xsd:string"/>
+<xsd:element name="nivHabRm" type="xsd:string"/>
+<xsd:element name="leadForce" type="xsd:integer"/>
+<!--  	porteesListe				  -->
+<xsd:element name="porteeList">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="portee" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<!--  	habilitationListe	  -->
+<xsd:element name="habilitationListe">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="habilitation">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="idHabilitation" type="xsd:integer"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="majPossible" type="xsd:boolean"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<!--  	porteesTituListe		  -->
+<xsd:element name="porteeTituListe">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="porteeTitu">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="titu" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="pf" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetPolTokenResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="tokenId" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<!--   FIN Element pour le WS GetPolToken	  -->
+<!--   DEBUT Element pour le WS GetParamToken	  -->
+<xsd:element name="GetParamTokenRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="appId" nillable="false" type="xsd:string"/>
+<xsd:element name="ip" nillable="false" type="xsd:string"/>
+<xsd:element name="login" nillable="false" type="xsd:string"/>
+<xsd:element name="clientId" type="xsd:string"/>
+<xsd:element minOccurs="0" name="accountType" type="xsd:string"/>
+<!--  	paramListe	  -->
+<xsd:element name="paramListe">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="500" minOccurs="0" name="param">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="idParam" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="value" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GetParamTokenResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="tokenId" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<!--   FIN Element pour le WS GetParamToken	  -->
+<!--   DEBUT Element pour le WS validatePolToken	  -->
+<xsd:element name="ValidatePolTokenRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="tokenId" nillable="false" type="xsd:string"/>
+<xsd:element name="appId" nillable="false" type="xsd:string"/>
+<xsd:element name="ip" nillable="false" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ValidatePolTokenResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="tokenId" nillable="false" type="xsd:string"/>
+<xsd:element name="appId" nillable="false" type="xsd:string"/>
+<xsd:element name="ip" nillable="false" type="xsd:string"/>
+<xsd:element name="login" nillable="false" type="xsd:string"/>
+<xsd:element name="clientId" type="xsd:string"/>
+<xsd:element name="accountType" type="xsd:string"/>
+<!--  	champ specifique au jeton pol	  -->
+<xsd:element name="codeScs" type="xsd:string"/>
+<xsd:element name="codeTitulaire" type="xsd:string"/>
+<xsd:element name="nomTitulaire" type="xsd:string"/>
+<xsd:element name="holding" type="xsd:boolean"/>
+<xsd:element name="typeUtilisateur" type="xsd:integer"/>
+<xsd:element name="civilite" type="xsd:string"/>
+<xsd:element name="nom" type="xsd:string"/>
+<xsd:element name="prenom" type="xsd:string"/>
+<xsd:element name="email" type="xsd:string"/>
+<xsd:element name="email2" type="xsd:string"/>
+<xsd:element name="telFix" type="xsd:string"/>
+<xsd:element name="telMobile" type="xsd:string"/>
+<xsd:element name="fax" type="xsd:string"/>
+<xsd:element name="visibilite" type="xsd:string"/>
+<xsd:element name="visibiliteFlag" type="xsd:boolean"/>
+<xsd:element name="nivHabAcheter" type="xsd:string"/>
+<xsd:element name="nivHabRm" type="xsd:string"/>
+<xsd:element name="leadForce" type="xsd:integer"/>
+<!--  	porteesListe				  -->
+<xsd:element name="porteeList">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="portee" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<!--  	habilitationListe	  -->
+<xsd:element name="habilitationListe">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="habilitation">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="idHabilitation" type="xsd:integer"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="majPossible" type="xsd:boolean"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<!--  	porteesTituListe		  -->
+<xsd:element name="porteeTituListe">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="porteeTitu">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="titu" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="pf" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<!--   DEBUT Element pour le WS validateParamToken	  -->
+<xsd:element name="ValidateParamTokenRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="tokenId" nillable="false" type="xsd:string"/>
+<xsd:element name="appId" nillable="false" type="xsd:string"/>
+<xsd:element name="ip" nillable="false" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ValidateParamTokenResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="tokenId" nillable="false" type="xsd:string"/>
+<xsd:element name="appId" nillable="false" type="xsd:string"/>
+<xsd:element name="ip" nillable="false" type="xsd:string"/>
+<xsd:element name="login" nillable="false" type="xsd:string"/>
+<xsd:element name="clientId" type="xsd:string"/>
+<xsd:element minOccurs="0" name="accountType" type="xsd:string"/>
+<xsd:element name="paramListe">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="500" minOccurs="0" name="param">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="idParam" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="value" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<!--   FIN Element pour le WS validatePolToken	  -->
+</xsd:schema>
+</wsdl:types>
+<wsdl:message name="GetPolTokenRequest">
+<wsdl:part element="tns:GetPolTokenRequest" name="GetPolTokenRequest"/>
+</wsdl:message>
+<wsdl:message name="ValidateParamTokenRequest">
+<wsdl:part element="tns:ValidateParamTokenRequest" name="ValidateParamTokenRequest"/>
+</wsdl:message>
+<wsdl:message name="GetTokenResponse">
+<wsdl:part element="tns:GetTokenResponse" name="GetTokenResponse"/>
+</wsdl:message>
+<wsdl:message name="ValidatePolTokenRequest">
+<wsdl:part element="tns:ValidatePolTokenRequest" name="ValidatePolTokenRequest"/>
+</wsdl:message>
+<wsdl:message name="GetParamTokenResponse">
+<wsdl:part element="tns:GetParamTokenResponse" name="GetParamTokenResponse"/>
+</wsdl:message>
+<wsdl:message name="ValidateTokenResponse">
+<wsdl:part element="tns:ValidateTokenResponse" name="ValidateTokenResponse"/>
+</wsdl:message>
+<wsdl:message name="GetPolTokenResponse">
+<wsdl:part element="tns:GetPolTokenResponse" name="GetPolTokenResponse"/>
+</wsdl:message>
+<wsdl:message name="ValidateParamTokenResponse">
+<wsdl:part element="tns:ValidateParamTokenResponse" name="ValidateParamTokenResponse"/>
+</wsdl:message>
+<wsdl:message name="GetParamTokenRequest">
+<wsdl:part element="tns:GetParamTokenRequest" name="GetParamTokenRequest"/>
+</wsdl:message>
+<wsdl:message name="ValidatePolTokenResponse">
+<wsdl:part element="tns:ValidatePolTokenResponse" name="ValidatePolTokenResponse"/>
+</wsdl:message>
+<wsdl:message name="GetTokenRequest">
+<wsdl:part element="tns:GetTokenRequest" name="GetTokenRequest"/>
+</wsdl:message>
+<wsdl:message name="ValidateTokenRequest">
+<wsdl:part element="tns:ValidateTokenRequest" name="ValidateTokenRequest"/>
+</wsdl:message>
+<wsdl:portType name="SsoService">
+<wsdl:operation name="ValidateParamToken">
+<wsdl:input message="tns:ValidateParamTokenRequest" name="ValidateParamTokenRequest"/>
+<wsdl:output message="tns:ValidateParamTokenResponse" name="ValidateParamTokenResponse"/>
+</wsdl:operation>
+<wsdl:operation name="GetToken">
+<wsdl:input message="tns:GetTokenRequest" name="GetTokenRequest"/>
+<wsdl:output message="tns:GetTokenResponse" name="GetTokenResponse"/>
+</wsdl:operation>
+<wsdl:operation name="GetPolToken">
+<wsdl:input message="tns:GetPolTokenRequest" name="GetPolTokenRequest"/>
+<wsdl:output message="tns:GetPolTokenResponse" name="GetPolTokenResponse"/>
+</wsdl:operation>
+<wsdl:operation name="ValidatePolToken">
+<wsdl:input message="tns:ValidatePolTokenRequest" name="ValidatePolTokenRequest"/>
+<wsdl:output message="tns:ValidatePolTokenResponse" name="ValidatePolTokenResponse"/>
+</wsdl:operation>
+<wsdl:operation name="GetParamToken">
+<wsdl:input message="tns:GetParamTokenRequest" name="GetParamTokenRequest"/>
+<wsdl:output message="tns:GetParamTokenResponse" name="GetParamTokenResponse"/>
+</wsdl:operation>
+<wsdl:operation name="ValidateToken">
+<wsdl:input message="tns:ValidateTokenRequest" name="ValidateTokenRequest"/>
+<wsdl:output message="tns:ValidateTokenResponse" name="ValidateTokenResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="SsoServiceSoap11" type="tns:SsoService">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="ValidateParamToken">
+<soap:operation soapAction=""/>
+<wsdl:input name="ValidateParamTokenRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="ValidateParamTokenResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetToken">
+<soap:operation soapAction=""/>
+<wsdl:input name="GetTokenRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetTokenResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetPolToken">
+<soap:operation soapAction=""/>
+<wsdl:input name="GetPolTokenRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetPolTokenResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ValidatePolToken">
+<soap:operation soapAction=""/>
+<wsdl:input name="ValidatePolTokenRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="ValidatePolTokenResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetParamToken">
+<soap:operation soapAction=""/>
+<wsdl:input name="GetParamTokenRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetParamTokenResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ValidateToken">
+<soap:operation soapAction=""/>
+<wsdl:input name="ValidateTokenRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="ValidateTokenResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="SsoServiceService">
+<wsdl:port binding="tns:SsoServiceSoap11" name="SsoServiceSoap11">
+<soap:address location="http://localhost:8080/extranet_sso/services"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

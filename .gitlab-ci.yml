@@ -1,0 +1,14 @@
+include:
+    - https://nexus.pic.services.prod/repository/DIB-Raw/gitlab-modules/latest/codequality/codeclimate.gitlab-ci.yml
+    - https://nexus.pic.services.prod/repository/DIB-Raw/gitlab-modules/latest/package/docker_build.gitlab-ci.yml
+    - https://nexus.pic.services.prod/repository/DIB-Raw/gitlab-modules/latest/deploy/helm.gitlab-ci.yml
+
+
+stages:
+    - package
+    - review
+    - integ
+    - staging
+    - production
+    - codequality
+    - cleanup
